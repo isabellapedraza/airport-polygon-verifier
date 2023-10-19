@@ -3,11 +3,12 @@
 
 ## Getting Started 
 
-To test locally, follow the following steps. 
+To get started, follow the following steps. 
 
 1. Set up a Python 3 virtual enviroment by running the following commands in your terminal. 
 
 `python3 -m venv venv`
+
 `source venv/bin/activate`
 
 2. Install dependencies by running the following command in your terminal. 
