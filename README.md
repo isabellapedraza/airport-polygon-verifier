@@ -25,6 +25,8 @@ Start the server by running the following command in your terminal.
 
 Navigate to `http://127.0.0.1:8080/:` to view your server. Make sure to refresh the page after making changes to the code. 
 
+(TODO - select interpreter?)
+
 ## Understanding the structure
 
 TODO
