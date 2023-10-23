@@ -28,34 +28,65 @@ Navigate to `http://127.0.0.1:8080/:` to view your server. Make sure to refresh 
 To test the code, run the following commands in your terminal.
 
 `pytest tests/test_web_scraper.py`
+`pytest tests/test_polygon_checker.py`
 
 ## Understanding the structure
 
-TODO
-
 Here's a brief explanation of each directory and file in the project:
 
-app/: This directory contains the main application code.
+### `/app`
 
-__init__.py: An empty file that marks the directory as a Python package.
-airport_locator.py: Contains code to find the nearest airport within the provided polygon.
-web_scraper.py: Contains code for web scraping to collect airport data.
-polygon_checker.py: Contains code for checking whether an airport is within the polygon.
-tests/: This directory contains unit tests for your application.
+This directory contains the main application code.
 
-__init__.py: An empty file that marks the directory as a Python package.
-test_airport_locator.py: Contains tests for the airport_locator module.
-test_web_scraper.py: Contains tests for the web_scraper module.
-test_polygon_checker.py: Contains tests for the polygon_checker module.
-data/: This directory can hold any data files you need for your application. For example, it might contain a CSV file with airport data.
+- `__init__.py`: An empty file that marks the directory as a Python package.
+- `web_scraper.py`: Contains code for web scraping `https://www.airnav.com` to collect airport data.
+- `polygon_checker.py`: Contains code for checking whether an airport is within the polygon.
 
-README.md: A readme file that explains how to use your application, provides an overview of the project, and documents any other necessary information.
+### `/tests`
 
-presentation/: This directory contains files related to your presentation, such as slides or documents.
+This directory contains unit tests for your application.
 
-main.py: The entry point of your application, where you run your main logic.
+- `__init__.py`: An empty file that marks the directory as a Python package.
+- `test_web_scraper.py`: Contains tests for the web_scraper module.
+- `test_polygon_checker.py`: Contains tests for the polygon_checker module.
 
-With this structure, you can keep your code well-organized and separated by functionality. The app directory contains the core application code, and the tests directory contains your test cases. Additionally, you have dedicated directories for data, documentation, and presentation materials.
+### `main.py`
+
+The entry point of my application, where I run my main logic and designed a simple frontend to demo the application.
+
+# Reflection 
+
+## Initial Planning 
+
+[Pipeline for Application](Pipeline.jpg)
+
+I initially broke down the problem by thinking about my inputs, actions, and outputs. The image represents my initial pipeline thought process. 
+
+## Assumptions
+
+Given the fact the specification of the application was left purposely under-specified, I began to think about the key assumptions that my functions would have in this application. In the future, I hope to make this application more robust and applicable to real life by loosening these assumptions and fortifying my test suite. 
+
+1. FAA Airport Identifiers are valid identifiers, meaning they are identifiers for American airports and will not be inputted erroneously. 
+
+2. `https://www.airnav.com` will always be correct and up to date.
+
+3. `https://www.airnav.com` will always have the same HTML page structure. 
+
+4. `https://www.airnav.com` lists coordinates for airports in (Latitude, Longitude) order. 
+
+5. All given and outputted coordinates are all in decimal degrees.
+
+6. The length of the list of coordinates is **not** upper bounded, but is lower bounded to be greater than or equal to 3 (since it must be a valid polygon).
+
+7. The list of coordinates represents a [**simple** polygon](https://en.wikipedia.org/wiki/Simple_polygon) with only straight edges of the lowest possible distance between vertices.
+
+8. Polygon will be "drawn" in the order of the list of coordinates. 
+
+9. In order for an airport to be inside of a polygon, it must lie within the polygon or on one of it's edges.  
+
+## Reflection 
+
+- `web_scraper.py`: I personally wish this code was more generalizable by perhaps using an API to get an airport's coordinates instead of scraping the web, in case the website we are scraping from becomes defunct.
 
 
-TODO: make up robust to erroneous input
+

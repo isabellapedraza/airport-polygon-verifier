@@ -1,13 +1,11 @@
 import re
 from bs4 import BeautifulSoup
 import requests
-from requests.exceptions import ReadTimeout
-
 
 def scrape_coordinates(url):
     '''
     Retrieve the latitude and longitude coordinates of an airport in decimal degrees
-    from https://www.airnav.com.
+    using https://www.airnav.com.
 
     Parameters:
         url (str): The URL of the web page containing airport coordinates.
@@ -42,7 +40,8 @@ def scrape_coordinates(url):
 
 def get_coordinates(faa_ids):
     """
-    Returns the respective latitude and longitude coordinates of airports given FAA identifiers.
+    Returns the respective latitude and longitude coordinates of airports given FAA identifiers
+    using the website https://www.airnav.com.
 
     Parameters:
         faa_ids (list[str]): A list of FAA identifiers
@@ -54,7 +53,7 @@ def get_coordinates(faa_ids):
     coordinates = []
 
     for airport_code in faa_ids:
-        url = f"https://www.airnav.com/airport/{airport_code}" #from specification
+        url = f"https://www.airnav.com/airport/{airport_code}" #URL is from specification
         coordinates.append(scrape_coordinates(url))
 
     return coordinates

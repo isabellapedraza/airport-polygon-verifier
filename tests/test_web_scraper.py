@@ -2,7 +2,7 @@ import pytest
 import requests
 from app import web_scraper
 
-# Define test cases
+#todo, add paritions
 
 def test_scrape_coordinates_northeast():
     url = "https://www.airnav.com/airport/BOS"
