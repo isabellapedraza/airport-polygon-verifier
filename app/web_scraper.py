@@ -15,12 +15,10 @@ def scrape_coordinates(url):
                                 coordinates of the airport in decimal degrees.
     
     Raises:
-        requests.exceptions.RequestException: If there is an issue with the HTTP request, such as a timeout or a non-200 status code.
+        requests.exceptions.RequestException: If there is an issue with the request, such as a timeout or a non-200 status code.
     '''
     try:
-        response = requests.get(
-            url, timeout=5
-        )
+        response = requests.get(url, timeout=5)
         response.raise_for_status()
 
         soup = BeautifulSoup(response.text, "html.parser")

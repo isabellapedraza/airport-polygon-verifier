@@ -84,7 +84,7 @@ Given the fact the specification of the application was left purposely under-spe
 
 9. In order for an airport to be inside of a polygon, it must lie within the polygon or on one of it's edges.  
 
-## Reflection 
+## Final thoughts
 
 - `web_scraper.py`: I personally wish this code was more generalizable by perhaps using an API to get an airport's coordinates instead of scraping the web, in case the website we are scraping from becomes defunct.
 
