@@ -76,18 +76,25 @@ Given the fact the specification of the application was left purposely under-spe
 
 5. All given and outputted coordinates are all in decimal degrees.
 
-6. The length of the list of coordinates is **not** upper bounded, but is lower bounded to be greater than or equal to 3 (since it must be a valid polygon).
+6. The length of the list of coordinates is **not** upper bounded, but is lower bounded to be greater than or equal to 3 (since diagons are not considered valid polygons).
 
 7. The list of coordinates represents a [**simple** polygon](https://en.wikipedia.org/wiki/Simple_polygon) with only straight edges of the lowest possible distance between vertices.
 
-8. Polygon will be "drawn" in the order of the list of coordinates. 
+8. Polygon coordinates create a polygon with no self-intersecting edges.
 
-9. In order for an airport to be inside of a polygon, it must lie within the polygon or on one of it's edges.  
+9. Polygon will be "drawn" in the order of the list of coordinates. 
+
+10. In order for an airport to be inside of a polygon, it must lie within the polygon, one of it's edges, or on a corner of the polygon.  
 
 ## Final thoughts
 
 - `web_scraper.py`: I personally wish this code was more generalizable by perhaps using an API to get an airport's coordinates instead of scraping the web, in case the website we are scraping from becomes defunct.
 
-- `polygon_checker.py`: I realized there are many ways of approaching this problem. In fact, there are many third-party Python packages that can actually perform this check. In addition, I also learned about the many different algorithms that exist to check whether a point is in a polygon. I decided to implement the simplest algorithm for now by hand since I'm not sure what the client's preferences are for using third-party Python packages (and not being able to dig into their code and see whether their implementation meets my personal assumptions).
+- `polygon_checker.py`: I realized there are many ways of approaching this problem. In fact, there are many third-party Python packages that can actually perform this check. I decided to implement the simplest algorithm for now by hand since I'm not sure what the client's preferences are for using third-party Python packages (and not being able to dig into their code and see whether their implementation meets my personal assumptions).
+
+- `polygon_checker.py`: I debated which particular algorithm I wanted to use in order to solve this problem. I debated between the **Winding Number Algorithm**, which takes O(n) time, the **Even-Odd Rule Algorithm**, which takes O(n) time. I decided to use the **Even-Odd Rule Algorithm** due to it's ease of implementation and ability to check points in boundaries. 
+
+- `polygon_checker.py`: To make my code for flexible to change, I created two separate functions so that the actual algorithm to check whether a airport coordinate is in a polygon is interchangeable. 
+
 
 
