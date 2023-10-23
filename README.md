@@ -88,5 +88,6 @@ Given the fact the specification of the application was left purposely under-spe
 
 - `web_scraper.py`: I personally wish this code was more generalizable by perhaps using an API to get an airport's coordinates instead of scraping the web, in case the website we are scraping from becomes defunct.
 
+- `polygon_checker.py`: I realized there are many ways of approaching this problem. In fact, there are many third-party Python packages that can actually perform this check. In addition, I also learned about the many different algorithms that exist to check whether a point is in a polygon. I decided to implement the simplest algorithm for now by hand since I'm not sure what the client's preferences are for using third-party Python packages (and not being able to dig into their code and see whether their implementation meets my personal assumptions).
 
 
