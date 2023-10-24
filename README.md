@@ -1,5 +1,5 @@
 # airport-polygon-verifier
- A tool that checks whether each airport, represented by their FAA Airport Identifier in a list, is within a polygon represented by a list of coordinates.
+A tool that checks whether each airport, represented by their FAA Airport Identifier in a list, is within a polygon represented by a list of coordinates.
 
 ## Getting Started 
 
@@ -60,7 +60,7 @@ The entry point of my application, where I run my main logic and designed a simp
 
 [Pipeline for Application](Pipeline.jpg)
 
-I initially broke down the problem by thinking about my inputs, actions, and outputs. The image represents my initial pipeline thought process. 
+I initially broke down the problem by thinking about my inputs, actions, and outputs. The image represents my initial pipeline thought process. I recognized as I worked on my project different parts of this pipeline changed, so I included the final version in my presentation.
 
 ## Assumptions
 
@@ -76,11 +76,9 @@ Given the fact the specification of the application was left purposely under-spe
 
 5. All given and outputted coordinates are all in decimal degrees.
 
-6. The length of the list of coordinates is **not** upper bounded, but is lower bounded to be greater than or equal to 3 (since diagons are not considered valid polygons).
+6. The length of the list of coordinates is **not** upper bounded, but is lower bounded to be greater than or equal to 3 (since single points and diagons are not considered valid polygons).
 
-7. The list of coordinates represents a [**simple** polygon](https://en.wikipedia.org/wiki/Simple_polygon) with only straight edges of the lowest possible distance between vertices.
-
-8. Polygon coordinates create a polygon with no self-intersecting edges.
+7. The list of coordinates represents a [**simple**](https://en.wikipedia.org/wiki/Simple_polygon) or [**self-intersecting**](https://en.wikipedia.org/wiki/List_of_self-intersecting_polygons#:~:text=Self%2Dintersecting%20polygons%2C%20crossed%20polygons,polygons%2C%20whose%20edges%20never%20cross.) polygon with only straight edges of the lowest possible distance between vertices.
 
 9. Polygon will be "drawn" in the order of the list of coordinates. 
 
@@ -94,7 +92,7 @@ Given the fact the specification of the application was left purposely under-spe
 
 - `polygon_checker.py`: I debated which particular algorithm I wanted to use in order to solve this problem. I debated between the **Winding Number Algorithm**, which takes O(n) time, the **Even-Odd Rule Algorithm**, which takes O(n) time. I decided to use the **Even-Odd Rule Algorithm** due to it's ease of implementation and ability to check points in boundaries. 
 
-- `polygon_checker.py`: To make my code for flexible to change, I created two separate functions so that the actual algorithm to check whether a airport coordinate is in a polygon is interchangeable. 
+- `polygon_checker.py`: To make my code for flexible to change, I created two separate functions so that the actual algorithm to check whether a airport coordinate is in a polygon is interchangeable. **NOTE**: This was super helpful, since I first implemented a simple polygon point-in-polygon algorithm and then moved on to a more generalizable point-in-polygon algorithm that can check simple polygons and self-intersecting polygons!
 
 
 
