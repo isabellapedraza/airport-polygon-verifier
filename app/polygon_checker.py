@@ -4,7 +4,7 @@ def point_in_polygon(latitude, longitude, polygon_coords):
     """
     Checks if a set of latitude, longitude coordinates is within,
     coincides with a corner, or lies on the edge of a polygon defined
-    by a list of latitude, longitude coordinates.
+    by a list of latitude, longitude coordinates using the even odd rule algorithm.
 
     Parameters:
         latitude (float): The latitude of the point.
