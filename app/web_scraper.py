@@ -1,6 +1,7 @@
 import re
 from bs4 import BeautifulSoup
 import requests
+import json
 
 def scrape_coordinates(url):
     '''
@@ -35,6 +36,14 @@ def scrape_coordinates(url):
     except requests.exceptions.RequestException as e:
         print("Error:", e)
 
+    
+# def scrape_json(faa_id):
+#     with open("airports.json") as f:
+#         print(f)
+#         for i in json.load(f):
+#             if i['IATA'] == faa_id:
+#                 return (i["LATITUDE"], i["LONGITUDE"])
+
 
 def get_coordinates(faa_ids):
     """
@@ -52,6 +61,8 @@ def get_coordinates(faa_ids):
 
     for airport_code in faa_ids:
         url = f"https://www.airnav.com/airport/{airport_code}" #URL is from specification
-        coordinates.append(scrape_coordinates(url))
+        coordinates.append(scrape_coordinates(airport_code))
 
     return coordinates
+
+# print(scrape_json("IAD"))
