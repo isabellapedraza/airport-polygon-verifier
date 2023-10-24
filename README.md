@@ -82,7 +82,7 @@ Given the fact the specification of the application was left purposely under-spe
 
 9. Polygon will be "drawn" in the order of the list of coordinates. 
 
-10. In order for an airport to be inside of a polygon, it must lie within the polygon, one of it's edges, or on a corner of the polygon.  
+10. In order for an airport to be inside of a polygon, it must lie within the polygon, on one of it's edges, or on a corner of the polygon.  
 
 ## Final thoughts
 
