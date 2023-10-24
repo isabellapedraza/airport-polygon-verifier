@@ -7,8 +7,8 @@ def point_in_polygon(x, y, polygon_coords):
     a polygon defined by a list of coordinates using the even odd rule algorithm.
 
     Parameters:
-        x (float): The latitude of the point.
-        y (float): The longitude of the point.
+        x (float): The horizontal position of the point.
+        y (float): The vertical position of the point.
         polygon_coords list(list[float]): A list of lists of coordinates defining the polygon.
 
     Returns:
